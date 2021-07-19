@@ -10,9 +10,15 @@ import Foundation
 
 struct K {
     static let emptyWords = ""
+    
     struct Home {
         static let search = "検索"
         static let inputStationName = "駅名を入力"
         static let favorite = "お気に入り"
+    }
+    
+    struct RouteSelection {
+        static let station = "駅"
+        static let route = "路線"
     }
 }

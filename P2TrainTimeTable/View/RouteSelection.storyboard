@@ -16,13 +16,56 @@
                     <view key="view" contentMode="scaleToFill" id="t3V-TS-2gc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW0-ct-RR6">
+                                <rect key="frame" x="8" y="36" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdW-BS-VOd">
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routeCell" id="sfH-ch-XgT">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sfH-ch-XgT" id="dkd-1h-6az">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lrx-hK-iTi" firstAttribute="trailing" secondItem="fW0-ct-RR6" secondAttribute="trailing" constant="8" id="Ur1-hC-rIT"/>
+                            <constraint firstItem="fW0-ct-RR6" firstAttribute="leading" secondItem="Lrx-hK-iTi" secondAttribute="leading" constant="8" id="Wj0-ki-V1q"/>
+                            <constraint firstItem="fW0-ct-RR6" firstAttribute="top" secondItem="Lrx-hK-iTi" secondAttribute="top" constant="16" id="cpV-90-rHm"/>
+                            <constraint firstItem="xdW-BS-VOd" firstAttribute="top" secondItem="fW0-ct-RR6" secondAttribute="bottom" constant="8" id="ekv-oY-4yh"/>
+                            <constraint firstItem="Lrx-hK-iTi" firstAttribute="bottom" secondItem="xdW-BS-VOd" secondAttribute="bottom" id="esB-zo-ZDx"/>
+                            <constraint firstItem="xdW-BS-VOd" firstAttribute="leading" secondItem="Lrx-hK-iTi" secondAttribute="leading" id="gXO-Ro-SEf"/>
+                            <constraint firstItem="Lrx-hK-iTi" firstAttribute="trailing" secondItem="xdW-BS-VOd" secondAttribute="trailing" id="wXd-wo-PTX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lrx-hK-iTi"/>
                     </view>
+                    <connections>
+                        <outlet property="routeLabel" destination="fW0-ct-RR6" id="LzV-mJ-szY"/>
+                        <segue destination="Hcw-Ld-Ljb" kind="show" identifier="toTimeTable" id="RKy-Xo-5Cv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEa-8l-IaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="335" y="-234"/>
+        </scene>
+        <!--Timetable-->
+        <scene sceneID="mYX-cD-X4r">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Timetable" id="Hcw-Ld-Ljb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S7P-JK-Nsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="-235"/>
         </scene>
     </scenes>
 </document>
