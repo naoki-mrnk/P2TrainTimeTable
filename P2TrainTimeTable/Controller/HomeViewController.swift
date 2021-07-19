@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Property
     let favoriteCellIdentifier = "favoriteCell"
+    let toRouteSelectionIdentifier = "toRouteSelection"
     
     // MARK: - IBOutlets
     @IBOutlet weak var inputStationSearchBar: UISearchBar!
@@ -42,6 +43,14 @@ class HomeViewController: UIViewController {
     func setupLabel() {
         favoriteLabel.text = "お気に入り"
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == toRouteSelectionIdentifier) {
+            let routeSelectionView = segue.destination as! RouteSelectionViewController
+            // TextFieldからtextを取得
+            routeSelectionView.inputStationName = inputStationSearchBar.text!
+        }
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -51,8 +60,8 @@ extension HomeViewController: UISearchBarDelegate {
         view.endEditing(true)
         
         // nilじゃなければ遷移
-        if let stationName = inputStationSearchBar.text {
-            // TODO: - 画面遷移(値渡し)
+        if inputStationSearchBar.text != nil {
+            performSegue(withIdentifier: toRouteSelectionIdentifier, sender: nil)
         }
     }
 }

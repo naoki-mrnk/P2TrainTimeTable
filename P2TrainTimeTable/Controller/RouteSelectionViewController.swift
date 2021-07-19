@@ -9,6 +9,10 @@
 import UIKit
 
 class RouteSelectionViewController: UIViewController {
+    
+    // MARK: - Properties
+    /// Homeの検索ワードを格納する変数
+    var inputStationName = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
