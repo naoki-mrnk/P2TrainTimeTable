@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  P2TrainTimeTable
 //
-//  Created by cmStudent on 2021/07/19.
+//  Created by naoki-mrnk on 2021/07/19.
 //  Copyright © 2021 naoki-mrnk. All rights reserved.
 //
 
