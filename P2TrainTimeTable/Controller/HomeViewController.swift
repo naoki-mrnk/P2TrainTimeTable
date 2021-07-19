@@ -33,15 +33,15 @@ class HomeViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        self.navigationItem.title = "検索"
+        self.navigationItem.title = K.Home.search
     }
     
     func setupTextField() {
-        inputStationSearchBar.placeholder = "駅名を入力"
+        inputStationSearchBar.placeholder = K.Home.inputStationName
     }
     
     func setupLabel() {
-        favoriteLabel.text = "お気に入り"
+        favoriteLabel.text = K.Home.favorite
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

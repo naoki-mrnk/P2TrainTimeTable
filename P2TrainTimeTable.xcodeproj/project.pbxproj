@@ -16,6 +16,7 @@
 		7F49DFFE26A55A03007B7CC6 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFFD26A55A03007B7CC6 /* UIButtonExtension.swift */; };
 		7F49E00026A55A55007B7CC6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFFF26A55A55007B7CC6 /* RealmManager.swift */; };
 		7F49E00226A55C37007B7CC6 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49E00126A55C37007B7CC6 /* FavoriteList.swift */; };
+		7F49E00526A579AD007B7CC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49E00426A579AD007B7CC6 /* Constants.swift */; };
 		7FA4335226A54FE600326E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4335126A54FE600326E4B /* AppDelegate.swift */; };
 		7FA4335926A54FEA00326E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4335826A54FEA00326E4B /* Assets.xcassets */; };
 		7FA4335C26A54FEA00326E4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4335A26A54FEA00326E4B /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 		7F49DFFD26A55A03007B7CC6 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		7F49DFFF26A55A55007B7CC6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		7F49E00126A55C37007B7CC6 /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
+		7F49E00426A579AD007B7CC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7FA4334E26A54FE600326E4B /* P2TrainTimeTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2TrainTimeTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA4335126A54FE600326E4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA4335826A54FEA00326E4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				7FA4335826A54FEA00326E4B /* Assets.xcassets */,
 				7FA4335A26A54FEA00326E4B /* LaunchScreen.storyboard */,
 				7FA4335D26A54FEA00326E4B /* Info.plist */,
+				7F49E00426A579AD007B7CC6 /* Constants.swift */,
 			);
 			path = P2TrainTimeTable;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				7F49DFFA26A559BE007B7CC6 /* TimetableViewController.swift in Sources */,
 				7F49DFEF26A5582C007B7CC6 /* HomeViewController.swift in Sources */,
 				7F49E00026A55A55007B7CC6 /* RealmManager.swift in Sources */,
+				7F49E00526A579AD007B7CC6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
