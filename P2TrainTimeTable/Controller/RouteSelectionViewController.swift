@@ -11,11 +11,25 @@ import UIKit
 class RouteSelectionViewController: UIViewController {
     
     // MARK: - Properties
+    let routeCellIdentifier = "routeCell"
     /// Homeの検索ワードを格納する変数
     var inputStationName = String()
+    
+    // IBOutlets
+    @IBOutlet weak var routeLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigationBar()
+    }
+    
+    func setupNavigationBar() {
+        self.navigationItem.title = inputStationName + K.RouteSelection.station
+    }
+    
+    func setupLabel() {
+        routeLabel.text = K.RouteSelection.route
     }
 }

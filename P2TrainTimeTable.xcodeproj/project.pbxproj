@@ -128,10 +128,10 @@
 				7F49DFE926A557F0007B7CC6 /* Controller */,
 				7F49DFE826A557EA007B7CC6 /* Extension */,
 				7F49DFED26A5580E007B7CC6 /* Application */,
+				7F49E00426A579AD007B7CC6 /* Constants.swift */,
 				7FA4335826A54FEA00326E4B /* Assets.xcassets */,
 				7FA4335A26A54FEA00326E4B /* LaunchScreen.storyboard */,
 				7FA4335D26A54FEA00326E4B /* Info.plist */,
-				7F49E00426A579AD007B7CC6 /* Constants.swift */,
 			);
 			path = P2TrainTimeTable;
 			sourceTree = "<group>";
