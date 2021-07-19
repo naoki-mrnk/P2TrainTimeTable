@@ -62,11 +62,20 @@
                         <outlet property="favoriteLabel" destination="6jm-4k-irg" id="xet-jS-1Wa"/>
                         <outlet property="favoriteListTableView" destination="XTe-G7-Ao6" id="zvM-Bu-B3a"/>
                         <outlet property="inputStationSearchBar" destination="eh3-89-Hek" id="tn3-T4-Uap"/>
+                        <segue destination="7el-Qc-TEQ" kind="show" identifier="toRouteSelection" id="J6v-fQ-foi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAK-fE-aPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1136.8" y="60.719640179910051"/>
+        </scene>
+        <!--RouteSelection-->
+        <scene sceneID="aPm-gf-CwJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RouteSelection" id="7el-Qc-TEQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9qF-RP-T63" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830" y="60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rO3-5j-GPX">
