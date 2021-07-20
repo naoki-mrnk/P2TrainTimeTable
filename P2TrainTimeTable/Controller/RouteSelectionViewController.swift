@@ -18,10 +18,15 @@ class RouteSelectionViewController: UIViewController {
     
     // IBOutlets
     @IBOutlet weak var routeLabel: UILabel!
+    @IBOutlet weak var routeSelectionTableView: UITableView!
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        routeSelectionTableView.delegate = self
+        routeSelectionTableView.dataSource = self
 
         setupNavigationBar()
     }
@@ -32,5 +37,26 @@ class RouteSelectionViewController: UIViewController {
     
     func setupLabel() {
         routeLabel.text = K.RouteSelection.route
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension RouteSelectionViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: routeCellIdentifier, for: indexPath)
+        
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension RouteSelectionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
     }
 }
