@@ -11,7 +11,7 @@ import UIKit
 class TimetableViewController: UIViewController {
     
     // Properties
-    let timetableCell = "timetableCell"
+    let timetableCellIdentifier = "timetableCell"
     
     // IBOutlets
     @IBOutlet weak var timetableLabel: UILabel!
@@ -21,6 +21,9 @@ class TimetableViewController: UIViewController {
     // Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timetableTableView.delegate = self
+        timetableTableView.dataSource = self
         
         setupNavigationBar()
         setupSegmentedControl()
@@ -39,5 +42,34 @@ class TimetableViewController: UIViewController {
     
     func setupLabel() {
         timetableLabel.text = K.TimeTable.timetable
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension TimetableViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: timetableCellIdentifier, for: indexPath)
+        
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension TimetableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            // TODO: - スワイプ -> 削除の処理
+        }
+        timetableTableView.reloadData()
     }
 }
