@@ -59,12 +59,4 @@ extension RouteSelectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
     }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            // TODO: - スワイプ -> 削除の処理
-        }
-        timetableTableView.reloadData()
-    }
 }
