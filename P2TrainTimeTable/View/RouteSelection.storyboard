@@ -52,6 +52,7 @@
                     </view>
                     <connections>
                         <outlet property="routeLabel" destination="fW0-ct-RR6" id="LzV-mJ-szY"/>
+                        <outlet property="routeSelectionTableView" destination="xdW-BS-VOd" id="r4w-hc-cTQ"/>
                         <segue destination="Hcw-Ld-Ljb" kind="show" identifier="toTimeTable" id="RKy-Xo-5Cv"/>
                     </connections>
                 </viewController>
