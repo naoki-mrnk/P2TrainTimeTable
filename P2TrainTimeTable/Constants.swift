@@ -25,5 +25,7 @@ struct K {
     
     struct TimeTable {
         static let timetable = "時刻表"
+        static let inbound = "上り"
+        static let outbound = "下り"
     }
 }

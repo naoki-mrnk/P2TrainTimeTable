@@ -30,8 +30,8 @@ class TimetableViewController: UIViewController {
         self.navigationItem.title = K.RouteSelection.station
         // TODO: - 駅名と路線名を追加
         // SegmentedControl
-        segmentedControl.setTitle("上り", forSegmentAt: 0)
-        segmentedControl.setTitle("下り", forSegmentAt: 1)
+        segmentedControl.setTitle(K.TimeTable.inbound, forSegmentAt: 0)
+        segmentedControl.setTitle(K.TimeTable.outbound, forSegmentAt: 1)
         // Label
         timetableLabel.text = K.TimeTable.timetable
         // TableView
