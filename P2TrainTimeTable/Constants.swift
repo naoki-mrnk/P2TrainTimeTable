@@ -12,6 +12,11 @@ struct K {
     static let emptyWords = ""
     static let hyphen = "-"
     
+    struct URL {
+        static let baseURL = "https://api-tokyochallenge.odpt.org/api/v4/"
+    }
+    
+    
     struct Home {
         static let search = "検索"
         static let inputStationName = "駅名を入力"
