@@ -22,26 +22,21 @@ class TimetableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timetableTableView.delegate = self
-        timetableTableView.dataSource = self
-        
-        setupNavigationBar()
-        setupSegmentedControl()
-        setupLabel()
+        setup()
     }
     
-    func setupNavigationBar() {
+    func setup() {
+        // NavigationBar
         self.navigationItem.title = K.RouteSelection.station
         // TODO: - 駅名と路線名を追加
-    }
-    
-    func setupSegmentedControl() {
+        // SegmentedControl
         segmentedControl.setTitle("上り", forSegmentAt: 0)
         segmentedControl.setTitle("下り", forSegmentAt: 1)
-    }
-    
-    func setupLabel() {
+        // Label
         timetableLabel.text = K.TimeTable.timetable
+        // TableView
+        timetableTableView.delegate = self
+        timetableTableView.dataSource = self
     }
 }
 

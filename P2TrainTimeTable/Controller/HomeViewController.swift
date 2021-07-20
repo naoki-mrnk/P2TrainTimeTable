@@ -23,25 +23,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationBar()
-        setupTextField()
-        setupLabel()
-        
+        setup()
+    }
+    
+    func setup() {
+        // NavigationBar
+        self.navigationItem.title = K.Home.search
+        // SearchBar
         inputStationSearchBar.delegate = self
+        inputStationSearchBar.placeholder = K.Home.inputStationName
+        // Label
+        favoriteLabel.text = K.Home.favorite
+        // TableView
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
-    }
-    
-    func setupNavigationBar() {
-        self.navigationItem.title = K.Home.search
-    }
-    
-    func setupTextField() {
-        inputStationSearchBar.placeholder = K.Home.inputStationName
-    }
-    
-    func setupLabel() {
-        favoriteLabel.text = K.Home.favorite
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -21,22 +21,21 @@ class RouteSelectionViewController: UIViewController {
     @IBOutlet weak var routeSelectionTableView: UITableView!
     
     
-
+    // Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setup()
+    }
+    
+    func setup() {
+        // NavigationBar
+        self.navigationItem.title = inputStationName + K.RouteSelection.station
+        // Label
+        routeLabel.text = K.RouteSelection.route
+        // TableView
         routeSelectionTableView.delegate = self
         routeSelectionTableView.dataSource = self
-
-        setupNavigationBar()
-    }
-    
-    func setupNavigationBar() {
-        self.navigationItem.title = inputStationName + K.RouteSelection.station
-    }
-    
-    func setupLabel() {
-        routeLabel.text = K.RouteSelection.route
     }
 }
 
