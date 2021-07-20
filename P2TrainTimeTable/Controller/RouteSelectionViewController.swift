@@ -48,7 +48,7 @@ extension RouteSelectionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: routeCellIdentifier, for: indexPath)
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: routeCellIdentifier)
         
         return cell
     }
