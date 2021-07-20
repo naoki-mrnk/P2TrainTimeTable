@@ -12,6 +12,7 @@ class RouteSelectionViewController: UIViewController {
     
     // MARK: - Properties
     let routeCellIdentifier = "routeCell"
+    let toTimetableIdentifier = "toTimeTable"
     /// Homeの検索ワードを格納する変数
     var inputStationName = String()
     

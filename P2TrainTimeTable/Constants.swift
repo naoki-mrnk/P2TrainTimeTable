@@ -10,6 +10,7 @@ import Foundation
 
 struct K {
     static let emptyWords = ""
+    static let hyphen = "-"
     
     struct Home {
         static let search = "検索"
@@ -20,5 +21,9 @@ struct K {
     struct RouteSelection {
         static let station = "駅"
         static let route = "路線"
+    }
+    
+    struct TimeTable {
+        static let timetable = "時刻表"
     }
 }

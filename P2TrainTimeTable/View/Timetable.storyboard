@@ -16,9 +16,55 @@
                     <view key="view" contentMode="scaleToFill" id="8Uu-if-ZMb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mph-7A-lvm">
+                                <rect key="frame" x="8" y="44" width="359" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-k3-EhR">
+                                <rect key="frame" x="8" y="80" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jqZ-Lt-KkJ">
+                                <rect key="frame" x="0.0" y="109" width="375" height="558"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timetableCell" id="uaE-Hy-F8j">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uaE-Hy-F8j" id="gOU-q6-UO5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kue-TA-uKt" firstAttribute="trailing" secondItem="mph-7A-lvm" secondAttribute="trailing" constant="8" id="2r4-nR-2de"/>
+                            <constraint firstItem="kue-TA-uKt" firstAttribute="trailing" secondItem="VsX-k3-EhR" secondAttribute="trailing" constant="8" id="5zY-Zc-WnO"/>
+                            <constraint firstItem="mph-7A-lvm" firstAttribute="leading" secondItem="kue-TA-uKt" secondAttribute="leading" constant="8" id="8Il-3f-k0y"/>
+                            <constraint firstItem="jqZ-Lt-KkJ" firstAttribute="leading" secondItem="kue-TA-uKt" secondAttribute="leading" id="Qvq-O1-ylP"/>
+                            <constraint firstItem="kue-TA-uKt" firstAttribute="trailing" secondItem="jqZ-Lt-KkJ" secondAttribute="trailing" id="VJx-YH-578"/>
+                            <constraint firstItem="VsX-k3-EhR" firstAttribute="top" secondItem="mph-7A-lvm" secondAttribute="bottom" constant="8" id="XTF-zj-2Oh"/>
+                            <constraint firstItem="VsX-k3-EhR" firstAttribute="leading" secondItem="kue-TA-uKt" secondAttribute="leading" constant="8" id="b6N-Ma-dbD"/>
+                            <constraint firstItem="mph-7A-lvm" firstAttribute="top" secondItem="kue-TA-uKt" secondAttribute="top" constant="24" id="iDj-JM-XcS"/>
+                            <constraint firstItem="kue-TA-uKt" firstAttribute="bottom" secondItem="jqZ-Lt-KkJ" secondAttribute="bottom" id="oCE-40-jvt"/>
+                            <constraint firstItem="jqZ-Lt-KkJ" firstAttribute="top" secondItem="VsX-k3-EhR" secondAttribute="bottom" constant="8" id="t7s-jl-t9y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kue-TA-uKt"/>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="mph-7A-lvm" id="cZB-G9-mZY"/>
+                        <outlet property="timetableLabel" destination="VsX-k3-EhR" id="ocH-8I-5BM"/>
+                        <outlet property="timetableTableView" destination="jqZ-Lt-KkJ" id="BbS-0H-JnG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfw-wV-oiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
