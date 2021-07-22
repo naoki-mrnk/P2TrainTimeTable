@@ -13,13 +13,16 @@
 		7F49DFF626A558C1007B7CC6 /* RouteSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F49DFF526A558C1007B7CC6 /* RouteSelection.storyboard */; };
 		7F49DFFA26A559BE007B7CC6 /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFF926A559BE007B7CC6 /* TimetableViewController.swift */; };
 		7F49DFFC26A559DF007B7CC6 /* Timetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F49DFFB26A559DF007B7CC6 /* Timetable.storyboard */; };
-		7F49DFFE26A55A03007B7CC6 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFFD26A55A03007B7CC6 /* UIButtonExtension.swift */; };
 		7F49E00026A55A55007B7CC6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFFF26A55A55007B7CC6 /* RealmManager.swift */; };
 		7F49E00226A55C37007B7CC6 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49E00126A55C37007B7CC6 /* FavoriteList.swift */; };
 		7F49E00526A579AD007B7CC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49E00426A579AD007B7CC6 /* Constants.swift */; };
+		7F978B2626A9742200C3EDD2 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F978B2526A9742200C3EDD2 /* URLExtension.swift */; };
 		7FA4335226A54FE600326E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4335126A54FE600326E4B /* AppDelegate.swift */; };
 		7FA4335926A54FEA00326E4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4335826A54FEA00326E4B /* Assets.xcassets */; };
 		7FA4335C26A54FEA00326E4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4335A26A54FEA00326E4B /* LaunchScreen.storyboard */; };
+		7FEEB82C26A6AEB400A23AB1 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEEB82B26A6AEB400A23AB1 /* Station.swift */; };
+		7FEEB82E26A6BFCC00A23AB1 /* url.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEEB82D26A6BFCC00A23AB1 /* url.plist */; };
+		7FFF090E26A7A87100A007B5 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFF090D26A7A87100A007B5 /* URLManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,15 +32,18 @@
 		7F49DFF526A558C1007B7CC6 /* RouteSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RouteSelection.storyboard; sourceTree = "<group>"; };
 		7F49DFF926A559BE007B7CC6 /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
 		7F49DFFB26A559DF007B7CC6 /* Timetable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timetable.storyboard; sourceTree = "<group>"; };
-		7F49DFFD26A55A03007B7CC6 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		7F49DFFF26A55A55007B7CC6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		7F49E00126A55C37007B7CC6 /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		7F49E00426A579AD007B7CC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7F978B2526A9742200C3EDD2 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		7FA4334E26A54FE600326E4B /* P2TrainTimeTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2TrainTimeTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA4335126A54FE600326E4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA4335826A54FEA00326E4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FA4335B26A54FEA00326E4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FA4335D26A54FEA00326E4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FEEB82B26A6AEB400A23AB1 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		7FEEB82D26A6BFCC00A23AB1 /* url.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = url.plist; sourceTree = "<group>"; };
+		7FFF090D26A7A87100A007B5 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +60,7 @@
 		7F49DFE826A557EA007B7CC6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				7F49DFFD26A55A03007B7CC6 /* UIButtonExtension.swift */,
+				7F978B2526A9742200C3EDD2 /* URLExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -72,6 +78,7 @@
 		7F49DFEA26A557F6007B7CC6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7FA4335A26A54FEA00326E4B /* LaunchScreen.storyboard */,
 				7F49DFF026A55836007B7CC6 /* Home.storyboard */,
 				7F49DFF526A558C1007B7CC6 /* RouteSelection.storyboard */,
 				7F49DFFB26A559DF007B7CC6 /* Timetable.storyboard */,
@@ -83,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				7F49E00126A55C37007B7CC6 /* FavoriteList.swift */,
+				7FEEB82B26A6AEB400A23AB1 /* Station.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				7F49DFFF26A55A55007B7CC6 /* RealmManager.swift */,
+				7FFF090D26A7A87100A007B5 /* URLManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -130,8 +139,8 @@
 				7F49DFED26A5580E007B7CC6 /* Application */,
 				7F49E00426A579AD007B7CC6 /* Constants.swift */,
 				7FA4335826A54FEA00326E4B /* Assets.xcassets */,
-				7FA4335A26A54FEA00326E4B /* LaunchScreen.storyboard */,
 				7FA4335D26A54FEA00326E4B /* Info.plist */,
+				7FEEB82D26A6BFCC00A23AB1 /* url.plist */,
 			);
 			path = P2TrainTimeTable;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FEEB82E26A6BFCC00A23AB1 /* url.plist in Resources */,
 				7F49DFF126A55836007B7CC6 /* Home.storyboard in Resources */,
 				7F49DFF626A558C1007B7CC6 /* RouteSelection.storyboard in Resources */,
 				7FA4335C26A54FEA00326E4B /* LaunchScreen.storyboard in Resources */,
@@ -210,9 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F49E00226A55C37007B7CC6 /* FavoriteList.swift in Sources */,
+				7FEEB82C26A6AEB400A23AB1 /* Station.swift in Sources */,
 				7F49DFF326A5589C007B7CC6 /* RouteSelectionViewController.swift in Sources */,
-				7F49DFFE26A55A03007B7CC6 /* UIButtonExtension.swift in Sources */,
+				7FFF090E26A7A87100A007B5 /* URLManager.swift in Sources */,
 				7FA4335226A54FE600326E4B /* AppDelegate.swift in Sources */,
+				7F978B2626A9742200C3EDD2 /* URLExtension.swift in Sources */,
 				7F49DFFA26A559BE007B7CC6 /* TimetableViewController.swift in Sources */,
 				7F49DFEF26A5582C007B7CC6 /* HomeViewController.swift in Sources */,
 				7F49E00026A55A55007B7CC6 /* RealmManager.swift in Sources */,
