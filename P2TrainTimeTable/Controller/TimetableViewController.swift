@@ -10,15 +10,15 @@ import UIKit
 
 class TimetableViewController: UIViewController {
     
-    // Properties
+    // MARK: - Property
     let timetableCellIdentifier = "timetableCell"
     
-    // IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var timetableLabel: UILabel!
     @IBOutlet weak var timetableTableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 
-    // Methods
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         

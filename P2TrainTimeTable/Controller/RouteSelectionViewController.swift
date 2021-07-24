@@ -19,12 +19,12 @@ class RouteSelectionViewController: UIViewController {
     var staionInformations: [Station] = []
     
     
-    // IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var routeLabel: UILabel!
     @IBOutlet weak var routeSelectionTableView: UITableView!
     
     
-    // Methods
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
