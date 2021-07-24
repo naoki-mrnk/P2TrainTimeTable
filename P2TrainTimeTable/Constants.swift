@@ -2,7 +2,7 @@
 //  Constants.swift
 //  P2TrainTimeTable
 //
-//  Created by cmStudent on 2021/07/19.
+//  Created by naoki-mrnk on 2021/07/19.
 //  Copyright © 2021 naoki-mrnk. All rights reserved.
 //
 
@@ -13,7 +13,15 @@ struct K {
     static let hyphen = "-"
     
     struct URL {
-        static let baseURL = "https://api-tokyochallenge.odpt.org/api/v4/"
+        static let scheme = "Scheme"
+        static let host = "Host"
+        static let station = "Station"
+        static let timetable = "Timetable"
+        static let title = "dc:title"
+        static let consumerKey = "acl:consumerKey"
+        static let sameAs = "owl:sameAs"
+        static let key = "Key"
+        
     }
     
     
