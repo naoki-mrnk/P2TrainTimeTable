@@ -9,5 +9,29 @@
 import Foundation
 
 extension URL {
+    /// odpt:StationのURL
+    static func stationURL(_ stationName: String) -> URL? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = URLManager.getString(K.URL.scheme)
+        urlComponents.host = URLManager.getString(K.URL.host)
+        urlComponents.path = URLManager.getString(K.URL.station)
+        urlComponents.queryItems = [
+            URLQueryItem(name: K.URL.title, value: stationName),
+            URLQueryItem(name: K.URL.consumerKey, value: URLManager.getString(K.URL.key))
+        ]
+        return urlComponents.url
+    }
     
+    /// odpt:StationTimetableのURL
+    static func timetableURL(timetable: String) -> URL? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = URLManager.getString(K.URL.scheme)
+        urlComponents.host = URLManager.getString(K.URL.host)
+        urlComponents.path = URLManager.getString(K.URL.station)
+        urlComponents.queryItems = [
+            URLQueryItem(name: K.URL.sameAs, value: timetable),
+            URLQueryItem(name: K.URL.consumerKey, value: URLManager.getString(K.URL.key))
+        ]
+        return urlComponents.url
+    }
 }

@@ -15,6 +15,9 @@ class RouteSelectionViewController: UIViewController {
     let toTimetableIdentifier = "toTimeTable"
     /// Homeの検索ワードを格納する変数
     var inputStationName = String()
+    /// 駅の情報を格納する配列
+    var staionInformations: [Station] = []
+    
     
     // IBOutlets
     @IBOutlet weak var routeLabel: UILabel!
@@ -26,6 +29,13 @@ class RouteSelectionViewController: UIViewController {
         super.viewDidLoad()
 
         setup()
+        displayRoute(stationName: inputStationName, staionInformation: staionInformations)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        routeSelectionTableView.reloadData()
     }
     
     func setup() {
@@ -37,19 +47,40 @@ class RouteSelectionViewController: UIViewController {
         routeSelectionTableView.delegate = self
         routeSelectionTableView.dataSource = self
     }
+    
+    func displayRoute(stationName: String, staionInformation: [Station]?) {
+        print("++++++")
+        print(URL.stationURL(stationName)!)
+        print("++++++")
+        let task = URLSession.shared.dataTask(with: URL.stationURL(stationName)!) { (data, response, error) in
+
+            do {
+                let data: [Station] = try JSONDecoder().decode([Station].self, from: data!)
+                self.staionInformations = data
+                DispatchQueue.main.async {
+                    self.routeSelectionTableView.reloadData()
+                }
+                print(data)
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension RouteSelectionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 20
+        return staionInformations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: routeCellIdentifier)
+        let routeCell = tableView.dequeueReusableCell(withIdentifier: routeCellIdentifier, for: indexPath)
+        let stationInformation = staionInformations[indexPath.row]
+        routeCell.textLabel?.text = stationInformation.railway
         
-        return cell
+        return routeCell
     }
 }
 
