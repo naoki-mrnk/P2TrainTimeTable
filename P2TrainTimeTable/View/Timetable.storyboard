@@ -30,40 +30,55 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jqZ-Lt-KkJ">
-                                <rect key="frame" x="0.0" y="109" width="375" height="558"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GSq-GN-UTn">
+                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timetableCell" id="uaE-Hy-F8j">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timetableCell" id="bLC-fB-u5n">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uaE-Hy-F8j" id="gOU-q6-UO5">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bLC-fB-u5n" id="DGQ-da-MRs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtO-Se-QF6">
+                                <rect key="frame" x="311" y="603" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.95294117649999999" green="0.81960784310000001" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Q8a-cO-i6V"/>
+                                    <constraint firstAttribute="width" constant="40" id="vnc-LY-C64"/>
+                                </constraints>
+                                <state key="normal" image="heart"/>
+                                <connections>
+                                    <action selector="tappedFavoriteButton:" destination="beB-YY-1oL" eventType="touchUpInside" id="64m-lb-qor"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kue-TA-uKt" firstAttribute="trailing" secondItem="mph-7A-lvm" secondAttribute="trailing" constant="8" id="2r4-nR-2de"/>
+                            <constraint firstItem="GSq-GN-UTn" firstAttribute="leading" secondItem="kue-TA-uKt" secondAttribute="leading" id="5Ky-5M-N29"/>
                             <constraint firstItem="kue-TA-uKt" firstAttribute="trailing" secondItem="VsX-k3-EhR" secondAttribute="trailing" constant="8" id="5zY-Zc-WnO"/>
                             <constraint firstItem="mph-7A-lvm" firstAttribute="leading" secondItem="kue-TA-uKt" secondAttribute="leading" constant="8" id="8Il-3f-k0y"/>
-                            <constraint firstItem="jqZ-Lt-KkJ" firstAttribute="leading" secondItem="kue-TA-uKt" secondAttribute="leading" id="Qvq-O1-ylP"/>
-                            <constraint firstItem="kue-TA-uKt" firstAttribute="trailing" secondItem="jqZ-Lt-KkJ" secondAttribute="trailing" id="VJx-YH-578"/>
+                            <constraint firstItem="kue-TA-uKt" firstAttribute="bottom" secondItem="GSq-GN-UTn" secondAttribute="bottom" id="TXi-Ot-DGc"/>
+                            <constraint firstItem="GSq-GN-UTn" firstAttribute="top" secondItem="VsX-k3-EhR" secondAttribute="bottom" constant="24" id="Vux-Fx-qGk"/>
                             <constraint firstItem="VsX-k3-EhR" firstAttribute="top" secondItem="mph-7A-lvm" secondAttribute="bottom" constant="8" id="XTF-zj-2Oh"/>
                             <constraint firstItem="VsX-k3-EhR" firstAttribute="leading" secondItem="kue-TA-uKt" secondAttribute="leading" constant="8" id="b6N-Ma-dbD"/>
+                            <constraint firstItem="kue-TA-uKt" firstAttribute="trailing" secondItem="GSq-GN-UTn" secondAttribute="trailing" id="bxv-9D-n6h"/>
+                            <constraint firstAttribute="trailing" secondItem="mtO-Se-QF6" secondAttribute="trailing" constant="24" id="fSy-yt-Kwe"/>
                             <constraint firstItem="mph-7A-lvm" firstAttribute="top" secondItem="kue-TA-uKt" secondAttribute="top" constant="24" id="iDj-JM-XcS"/>
-                            <constraint firstItem="kue-TA-uKt" firstAttribute="bottom" secondItem="jqZ-Lt-KkJ" secondAttribute="bottom" id="oCE-40-jvt"/>
-                            <constraint firstItem="jqZ-Lt-KkJ" firstAttribute="top" secondItem="VsX-k3-EhR" secondAttribute="bottom" constant="8" id="t7s-jl-t9y"/>
+                            <constraint firstAttribute="bottom" secondItem="mtO-Se-QF6" secondAttribute="bottom" constant="24" id="ys9-5h-OGR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kue-TA-uKt"/>
                     </view>
                     <connections>
+                        <outlet property="favoriteButton" destination="mtO-Se-QF6" id="Cf0-2A-4iw"/>
                         <outlet property="segmentedControl" destination="mph-7A-lvm" id="cZB-G9-mZY"/>
                         <outlet property="timetableLabel" destination="VsX-k3-EhR" id="ocH-8I-5BM"/>
-                        <outlet property="timetableTableView" destination="jqZ-Lt-KkJ" id="BbS-0H-JnG"/>
+                        <outlet property="timetableTableView" destination="GSq-GN-UTn" id="IzA-Vh-iCY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfw-wV-oiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -71,4 +86,7 @@
             <point key="canvasLocation" x="239" y="31"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" width="409.60000610351562" height="409.60000610351562"/>
+    </resources>
 </document>

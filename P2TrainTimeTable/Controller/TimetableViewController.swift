@@ -10,14 +10,19 @@ import UIKit
 
 class TimetableViewController: UIViewController {
     
-    // MARK: - Property
+    // MARK: - Properties
     let timetableCellIdentifier = "timetableCell"
+    let heart = UIImage(named: "heart")!
+    let heartFill = UIImage(named: "heartFill")!
+    var stationName = String()
+    var routeName = String()
     
     // MARK: - IBOutlets
-    @IBOutlet weak var timetableLabel: UILabel!
-    @IBOutlet weak var timetableTableView: UITableView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-
+    @IBOutlet private weak var timetableLabel: UILabel!
+    @IBOutlet private weak var timetableTableView: UITableView!
+    @IBOutlet private weak var segmentedControl: UISegmentedControl!
+    @IBOutlet private weak var favoriteButton: UIButton!
+    
     // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,7 @@ class TimetableViewController: UIViewController {
     
     func setup() {
         // NavigationBar
-        self.navigationItem.title = K.RouteSelection.station
+        self.navigationItem.title = stationName + K.RouteSelection.station + K.hyphen + routeName
         // TODO: - 駅名と路線名を追加
         // SegmentedControl
         segmentedControl.setTitle(K.TimeTable.inbound, forSegmentAt: 0)
@@ -37,6 +42,12 @@ class TimetableViewController: UIViewController {
         // TableView
         timetableTableView.delegate = self
         timetableTableView.dataSource = self
+        // fab
+        favoriteButton.setImage(heart, for: .normal)
+        favoriteButton.setImage(heartFill, for: .selected)
+    }
+    
+    @IBAction func tappedFavoriteButton(_ sender: UIButton) {
     }
 }
 

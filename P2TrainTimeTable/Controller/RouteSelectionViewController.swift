@@ -17,11 +17,12 @@ class RouteSelectionViewController: UIViewController {
     var inputStationName = String()
     /// 駅の情報を格納する配列
     var staionInformations: [Station] = []
+    var staionName = String()
     
     
     // MARK: - IBOutlets
-    @IBOutlet weak var routeLabel: UILabel!
-    @IBOutlet weak var routeSelectionTableView: UITableView!
+    @IBOutlet private weak var routeLabel: UILabel!
+    @IBOutlet private weak var routeSelectionTableView: UITableView!
     
     
     // MARK: - Methods
@@ -30,6 +31,7 @@ class RouteSelectionViewController: UIViewController {
 
         setup()
         displayRoute(stationName: inputStationName, staionInformation: staionInformations)
+        staionName = inputStationName
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +69,15 @@ class RouteSelectionViewController: UIViewController {
         }
         task.resume()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == toTimetableIdentifier) {
+            let timetableView = segue.destination as! TimetableViewController
+            // TextFieldからtextを取得
+            timetableView.stationName = staionName
+            // TODO: - 路線名を timetableView.routeName
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -88,5 +99,11 @@ extension RouteSelectionViewController: UITableViewDataSource {
 extension RouteSelectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: toTimetableIdentifier, sender: nil)
     }
 }
