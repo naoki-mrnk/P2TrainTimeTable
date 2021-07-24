@@ -55,7 +55,20 @@ extension HomeViewController: UISearchBarDelegate {
         view.endEditing(true)
         
         // nilじゃなければ遷移
-        if inputStationSearchBar.text != nil {
+        
+        let isEmpty = inputStationSearchBar.text?.isEmpty ?? false
+        if isEmpty {
+            let alert = UIAlertController(title: K.Home.pleaseEnterText, message: K.emptyWords, preferredStyle: UIAlertController.Style.alert)
+            
+            let okButton = UIAlertAction(title: K.ok, style: UIAlertAction.Style.cancel, handler: {
+                (action: UIAlertAction!) -> Void in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+            alert.addAction(okButton)
+            present(alert, animated: true, completion: nil)
+        } else {
             performSegue(withIdentifier: toRouteSelectionIdentifier, sender: nil)
         }
     }

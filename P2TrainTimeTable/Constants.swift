@@ -11,6 +11,7 @@ import Foundation
 struct K {
     static let emptyWords = ""
     static let hyphen = "-"
+    static let ok = "OK"
     
     struct URL {
         static let scheme = "Scheme"
@@ -29,6 +30,7 @@ struct K {
         static let search = "検索"
         static let inputStationName = "駅名を入力"
         static let favorite = "お気に入り"
+        static let pleaseEnterText = "サーチバーに文字が入力されていません"
     }
     
     struct RouteSelection {
