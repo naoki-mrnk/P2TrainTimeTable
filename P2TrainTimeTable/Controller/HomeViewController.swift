@@ -15,9 +15,9 @@ class HomeViewController: UIViewController {
     let toRouteSelectionIdentifier = "toRouteSelection"
     
     // MARK: - IBOutlets
-    @IBOutlet weak var inputStationSearchBar: UISearchBar!
-    @IBOutlet weak var favoriteLabel: UILabel!
-    @IBOutlet weak var favoriteListTableView: UITableView!
+    @IBOutlet private weak var inputStationSearchBar: UISearchBar!
+    @IBOutlet private weak var favoriteLabel: UILabel!
+    @IBOutlet private weak var favoriteListTableView: UITableView!
     
     // MARK: - Methods
     override func viewDidLoad() {
