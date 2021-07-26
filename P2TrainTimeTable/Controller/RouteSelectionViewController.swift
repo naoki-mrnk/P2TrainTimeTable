@@ -17,7 +17,9 @@ class RouteSelectionViewController: UIViewController {
     var inputStationName = String()
     /// 駅の情報を格納する配列
     var staionInformations: [Station] = []
+    var timetable: [String] = []
     var staionName = String()
+    var routeNameID = String()
     
     
     // MARK: - IBOutlets
@@ -30,6 +32,7 @@ class RouteSelectionViewController: UIViewController {
         super.viewDidLoad()
 
         setup()
+        print(inputStationName)
         displayRoute(stationName: inputStationName, staionInformation: staionInformations)
         staionName = inputStationName
     }
@@ -42,9 +45,9 @@ class RouteSelectionViewController: UIViewController {
     
     func setup() {
         // NavigationBar
-        self.navigationItem.title = inputStationName + K.RouteSelection.station
+        self.navigationItem.title = inputStationName + K.NavigationBar.station
         // Label
-        routeLabel.text = K.RouteSelection.route
+        routeLabel.text = K.Label.route
         // TableView
         routeSelectionTableView.delegate = self
         routeSelectionTableView.dataSource = self
@@ -73,9 +76,10 @@ class RouteSelectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == toTimetableIdentifier) {
             let timetableView = segue.destination as! TimetableViewController
-            // TextFieldからtextを取得
+            
             timetableView.stationName = staionName
-            // TODO: - 路線名を timetableView.routeName
+            timetableView.routeNameID = routeNameID
+            timetableView.timetable = timetable
         }
     }
 }
@@ -102,8 +106,9 @@ extension RouteSelectionViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        routeNameID = staionInformations[indexPath.row].railway
+        timetable = staionInformations[indexPath.row].stationTimetable!
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: toTimetableIdentifier, sender: nil)
+        self.performSegue(withIdentifier: self.toTimetableIdentifier, sender: nil)
     }
 }

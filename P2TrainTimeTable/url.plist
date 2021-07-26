@@ -8,6 +8,8 @@
 	<string>api-tokyochallenge.odpt.org</string>
 	<key>Station</key>
 	<string>/api/v4/odpt:Station</string>
+	<key>Railway</key>
+	<string>/api/v4/odpt:Railway</string>
 	<key>Timetable</key>
 	<string>/api/v4/odpt:StationTimetable</string>
 	<key>Key</key>

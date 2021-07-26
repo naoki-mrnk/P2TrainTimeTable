@@ -7,3 +7,34 @@
 //
 
 import Foundation
+import RealmSwift
+
+class RealmManager {
+    // MARK: - Properties
+    /// 初回アクセスのタイミングでインスタンス生成
+    static let shared = RealmManager()
+    
+    private init() {}
+    /// realmのインスタンス
+    let realm = try! Realm()
+    
+    func writeDB(DB: Object) {
+        do{
+            try realm.write{
+                realm.add(DB)
+            }
+        }catch {
+            print("Error \(error)")
+        }
+    }
+    
+    func deleteDB(DB: Object) {
+        do{
+            try realm.write{
+                realm.delete(DB)
+            }
+        }catch {
+            print("Error \(error)")
+        }
+    }
+}

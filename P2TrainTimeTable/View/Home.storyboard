@@ -75,7 +75,7 @@
                 <viewControllerPlaceholder storyboardName="RouteSelection" id="7el-Qc-TEQ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qF-RP-T63" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1830" y="60"/>
+            <point key="canvasLocation" x="1821" y="60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rO3-5j-GPX">

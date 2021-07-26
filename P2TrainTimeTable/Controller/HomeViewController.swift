@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import  RealmSwift
 
 class HomeViewController: UIViewController {
     
-    // MARK: - Property
+    // MARK: - Properties
     let favoriteCellIdentifier = "favoriteCell"
     let toRouteSelectionIdentifier = "toRouteSelection"
+    let realmManager = RealmManager.shared
+    var favoriteItems: Results<FavoriteItem>!
     
     // MARK: - IBOutlets
     @IBOutlet private weak var inputStationSearchBar: UISearchBar!
@@ -24,19 +27,27 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        
+        favoriteItems = realmManager.realm.objects(FavoriteItem.self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        favoriteListTableView.reloadData()
     }
     
     func setup() {
-        // NavigationBar
-        self.navigationItem.title = K.Home.search
-        // SearchBar
-        inputStationSearchBar.delegate = self
-        inputStationSearchBar.placeholder = K.Home.inputStationName
-        // Label
-        favoriteLabel.text = K.Home.favorite
         // TableView
         favoriteListTableView.delegate = self
         favoriteListTableView.dataSource = self
+        // NavigationBar
+        self.navigationItem.title = K.NavigationBar.search
+        // SearchBar
+        inputStationSearchBar.delegate = self
+        inputStationSearchBar.placeholder = K.SearchBar.inputStationName
+        // Label
+        favoriteLabel.text = K.Label.favorite
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,9 +69,9 @@ extension HomeViewController: UISearchBarDelegate {
         
         let isEmpty = inputStationSearchBar.text?.isEmpty ?? false
         if isEmpty {
-            let alert = UIAlertController(title: K.Home.pleaseEnterText, message: K.emptyWords, preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: K.AlertMessage.pleaseEnterText, message: K.emptyWords, preferredStyle: UIAlertController.Style.alert)
             
-            let okButton = UIAlertAction(title: K.ok, style: UIAlertAction.Style.cancel, handler: {
+            let okButton = UIAlertAction(title: K.AlertAction.ok, style: UIAlertAction.Style.cancel, handler: {
                 (action: UIAlertAction!) -> Void in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.dismiss(animated: true, completion: nil)
@@ -78,12 +89,15 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 20
+        return favoriteItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: favoriteCellIdentifier)
-        
+        let object = favoriteItems[indexPath.row]
+        let item = realmManager.realm.object(ofType: FavoriteItem.self, forPrimaryKey: object.favoriteItemID)
+        cell.textLabel!.text = item?.stationName
+        cell.detailTextLabel?.text = item?.routeName
         return cell
     }
 }
@@ -91,14 +105,20 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 50
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
             // TODO: - スワイプ -> 削除の処理
+            let favoriteItem = favoriteItems[indexPath.row]
+            
+            try! realmManager.realm.write {
+                
+                realmManager.realm.delete(favoriteItem)
+            }
+            favoriteListTableView.reloadData()
         }
-        favoriteListTableView.reloadData()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Timetable.swift
+//  Railway.swift
 //  P2TrainTimeTable
 //
 //  Created by naoki-mrnk on 2021/07/24.
@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct Timetable: Decodable {
-    let stationTimetableObject: [TimetableObject]
+struct Railway: Decodable {
     
+    let title: String
+
     enum CodingKeys: String, CodingKey {
-        case stationTimetableObject = "odpt:stationTimetableObject"
+        
+        case title = "dc:title"
     }
 }

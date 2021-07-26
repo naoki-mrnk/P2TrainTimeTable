@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FE3199FEA83C65F3B1C6460 /* Pods_P2TrainTimeTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A66C969A8847B391561565 /* Pods_P2TrainTimeTable.framework */; };
 		7F49DFEF26A5582C007B7CC6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFEE26A5582C007B7CC6 /* HomeViewController.swift */; };
 		7F49DFF126A55836007B7CC6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F49DFF026A55836007B7CC6 /* Home.storyboard */; };
 		7F49DFF326A5589C007B7CC6 /* RouteSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFF226A5589C007B7CC6 /* RouteSelectionViewController.swift */; };
@@ -14,11 +15,12 @@
 		7F49DFFA26A559BE007B7CC6 /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFF926A559BE007B7CC6 /* TimetableViewController.swift */; };
 		7F49DFFC26A559DF007B7CC6 /* Timetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F49DFFB26A559DF007B7CC6 /* Timetable.storyboard */; };
 		7F49E00026A55A55007B7CC6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DFFF26A55A55007B7CC6 /* RealmManager.swift */; };
-		7F49E00226A55C37007B7CC6 /* FavoriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49E00126A55C37007B7CC6 /* FavoriteList.swift */; };
 		7F49E00526A579AD007B7CC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49E00426A579AD007B7CC6 /* Constants.swift */; };
 		7F7B9B5826AC01EC001F482F /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9B5726AC01EC001F482F /* Timetable.swift */; };
 		7F7B9B5A26AC0301001F482F /* TimetableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9B5926AC0301001F482F /* TimetableObject.swift */; };
 		7F7B9B5E26AC0B74001F482F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F7B9B5D26AC0B74001F482F /* Assets.xcassets */; };
+		7F7B9B6026AC2504001F482F /* Railway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9B5F26AC2504001F482F /* Railway.swift */; };
+		7F7B9B6226AC65D9001F482F /* FavoriteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B9B6126AC65D9001F482F /* FavoriteItem.swift */; };
 		7F978B2626A9742200C3EDD2 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F978B2526A9742200C3EDD2 /* URLExtension.swift */; };
 		7FA4335226A54FE600326E4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4335126A54FE600326E4B /* AppDelegate.swift */; };
 		7FA4335C26A54FEA00326E4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4335A26A54FEA00326E4B /* LaunchScreen.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48A2CB645891B6C5CEC42022 /* Pods-P2TrainTimeTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2TrainTimeTable.release.xcconfig"; path = "Target Support Files/Pods-P2TrainTimeTable/Pods-P2TrainTimeTable.release.xcconfig"; sourceTree = "<group>"; };
+		6A98763A2959C0E9E6FA1A8F /* Pods-P2TrainTimeTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P2TrainTimeTable.debug.xcconfig"; path = "Target Support Files/Pods-P2TrainTimeTable/Pods-P2TrainTimeTable.debug.xcconfig"; sourceTree = "<group>"; };
 		7F49DFEE26A5582C007B7CC6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7F49DFF026A55836007B7CC6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		7F49DFF226A5589C007B7CC6 /* RouteSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSelectionViewController.swift; sourceTree = "<group>"; };
@@ -35,11 +39,12 @@
 		7F49DFF926A559BE007B7CC6 /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
 		7F49DFFB26A559DF007B7CC6 /* Timetable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timetable.storyboard; sourceTree = "<group>"; };
 		7F49DFFF26A55A55007B7CC6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		7F49E00126A55C37007B7CC6 /* FavoriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteList.swift; sourceTree = "<group>"; };
 		7F49E00426A579AD007B7CC6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F7B9B5726AC01EC001F482F /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
 		7F7B9B5926AC0301001F482F /* TimetableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableObject.swift; sourceTree = "<group>"; };
 		7F7B9B5D26AC0B74001F482F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7F7B9B5F26AC2504001F482F /* Railway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Railway.swift; sourceTree = "<group>"; };
+		7F7B9B6126AC65D9001F482F /* FavoriteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteItem.swift; sourceTree = "<group>"; };
 		7F978B2526A9742200C3EDD2 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		7FA4334E26A54FE600326E4B /* P2TrainTimeTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P2TrainTimeTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA4335126A54FE600326E4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		7FEEB82B26A6AEB400A23AB1 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		7FEEB82D26A6BFCC00A23AB1 /* url.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = url.plist; sourceTree = "<group>"; };
 		7FFF090D26A7A87100A007B5 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		A1A66C969A8847B391561565 /* Pods_P2TrainTimeTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P2TrainTimeTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +61,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE3199FEA83C65F3B1C6460 /* Pods_P2TrainTimeTable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		290B23567D5D065C35CD3F8C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A98763A2959C0E9E6FA1A8F /* Pods-P2TrainTimeTable.debug.xcconfig */,
+				48A2CB645891B6C5CEC42022 /* Pods-P2TrainTimeTable.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7F49DFE826A557EA007B7CC6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,10 +109,11 @@
 		7F49DFEB26A557FA007B7CC6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7F49E00126A55C37007B7CC6 /* FavoriteList.swift */,
 				7FEEB82B26A6AEB400A23AB1 /* Station.swift */,
 				7F7B9B5726AC01EC001F482F /* Timetable.swift */,
 				7F7B9B5926AC0301001F482F /* TimetableObject.swift */,
+				7F7B9B5F26AC2504001F482F /* Railway.swift */,
+				7F7B9B6126AC65D9001F482F /* FavoriteItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,6 +140,8 @@
 			children = (
 				7FA4335026A54FE600326E4B /* P2TrainTimeTable */,
 				7FA4334F26A54FE600326E4B /* Products */,
+				290B23567D5D065C35CD3F8C /* Pods */,
+				915B97412C84FFFF9B0F0C35 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +170,14 @@
 			path = P2TrainTimeTable;
 			sourceTree = "<group>";
 		};
+		915B97412C84FFFF9B0F0C35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1A66C969A8847B391561565 /* Pods_P2TrainTimeTable.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FA4336026A54FEA00326E4B /* Build configuration list for PBXNativeTarget "P2TrainTimeTable" */;
 			buildPhases = (
+				494B5A53C00C1095BF095F77 /* [CP] Check Pods Manifest.lock */,
 				7FA4334A26A54FE600326E4B /* Sources */,
 				7FA4334B26A54FE600326E4B /* Frameworks */,
 				7FA4334C26A54FE600326E4B /* Resources */,
+				17825A333B22CE2EFD469FB4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,12 +249,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		17825A333B22CE2EFD469FB4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-P2TrainTimeTable/Pods-P2TrainTimeTable-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-P2TrainTimeTable/Pods-P2TrainTimeTable-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-P2TrainTimeTable/Pods-P2TrainTimeTable-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		494B5A53C00C1095BF095F77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-P2TrainTimeTable-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7FA4334A26A54FE600326E4B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F49E00226A55C37007B7CC6 /* FavoriteList.swift in Sources */,
 				7FEEB82C26A6AEB400A23AB1 /* Station.swift in Sources */,
 				7F49DFF326A5589C007B7CC6 /* RouteSelectionViewController.swift in Sources */,
 				7FFF090E26A7A87100A007B5 /* URLManager.swift in Sources */,
@@ -234,7 +304,9 @@
 				7F7B9B5A26AC0301001F482F /* TimetableObject.swift in Sources */,
 				7F7B9B5826AC01EC001F482F /* Timetable.swift in Sources */,
 				7F49DFFA26A559BE007B7CC6 /* TimetableViewController.swift in Sources */,
+				7F7B9B6226AC65D9001F482F /* FavoriteItem.swift in Sources */,
 				7F49DFEF26A5582C007B7CC6 /* HomeViewController.swift in Sources */,
+				7F7B9B6026AC2504001F482F /* Railway.swift in Sources */,
 				7F49E00026A55A55007B7CC6 /* RealmManager.swift in Sources */,
 				7F49E00526A579AD007B7CC6 /* Constants.swift in Sources */,
 			);
@@ -372,6 +444,7 @@
 		};
 		7FA4336126A54FEA00326E4B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A98763A2959C0E9E6FA1A8F /* Pods-P2TrainTimeTable.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,6 +463,7 @@
 		};
 		7FA4336226A54FEA00326E4B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48A2CB645891B6C5CEC42022 /* Pods-P2TrainTimeTable.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
