@@ -22,10 +22,6 @@
 
 @protocol RLMFastEnumerable;
 
-NS_ASSUME_NONNULL_BEGIN
-
-void RLMCollectionSetValueForKey(id<RLMFastEnumerable> collection, NSString *key, id _Nullable value);
+NSArray *RLMCollectionValueForKey(id<RLMFastEnumerable> collection, NSString *key);
+void RLMCollectionSetValueForKey(id<RLMFastEnumerable> collection, NSString *key, id value);
 FOUNDATION_EXTERN NSString *RLMDescriptionWithMaxDepth(NSString *name, id<RLMCollection> collection, NSUInteger depth);
-FOUNDATION_EXTERN id _Nullable (*_Nullable RLMSwiftAsFastEnumeration)(id);
-
-NS_ASSUME_NONNULL_END

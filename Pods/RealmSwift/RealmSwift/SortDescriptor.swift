@@ -51,12 +51,27 @@ public struct SortDescriptor {
         self.ascending = ascending
     }
 
+    /**
+     Creates a sort descriptor with the given property and sort order values.
+
+     - parameter property:  The property which the sort descriptor orders results by.
+     - parameter ascending: Whether the descriptor sorts in ascending or descending order.
+     */
+    @available(*, deprecated, renamed: "init(keyPath:ascending:)")
+    public init(property: String, ascending: Bool = true) {
+        self.init(keyPath: property, ascending: ascending)
+    }
+
     // MARK: Functions
 
     /// Returns a copy of the sort descriptor with the sort order reversed.
     public func reversed() -> SortDescriptor {
         return SortDescriptor(keyPath: keyPath, ascending: !ascending)
     }
+
+    /// The key path which the sort descriptor orders results by.
+    @available(*, deprecated, renamed: "keyPath")
+    public var property: String { return keyPath }
 }
 
 // MARK: CustomStringConvertible
@@ -75,7 +90,7 @@ extension SortDescriptor: Equatable {
     /// Returns whether the two sort descriptors are equal.
     public static func == (lhs: SortDescriptor, rhs: SortDescriptor) -> Bool {
         return lhs.keyPath == rhs.keyPath &&
-            lhs.ascending == rhs.ascending
+            lhs.ascending == lhs.ascending
     }
 }
 
@@ -85,6 +100,24 @@ extension SortDescriptor: ExpressibleByStringLiteral {
 
     public typealias UnicodeScalarLiteralType = StringLiteralType
     public typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
+
+    /**
+     Creates a `SortDescriptor` out of a Unicode scalar literal.
+
+     - parameter unicodeScalarLiteral: Property name literal.
+    */
+    public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
+        self.init(keyPath: value)
+    }
+
+    /**
+     Creates a `SortDescriptor` out of a character literal.
+
+     - parameter extendedGraphemeClusterLiteral: Property name literal.
+     */
+    public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
+        self.init(keyPath: value)
+    }
 
     /**
      Creates a `SortDescriptor` out of a string literal.

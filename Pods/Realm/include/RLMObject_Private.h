@@ -20,11 +20,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RLMProperty, RLMArray;
-typedef NS_ENUM(int32_t, RLMPropertyType);
-
-FOUNDATION_EXTERN void RLMInitializeWithValue(RLMObjectBase *, id, RLMSchema *);
-
 // RLMObject accessor and read/write realm
 @interface RLMObjectBase () {
 @public
@@ -32,15 +27,45 @@ FOUNDATION_EXTERN void RLMInitializeWithValue(RLMObjectBase *, id, RLMSchema *);
     __unsafe_unretained RLMObjectSchema *_objectSchema;
 }
 
+// unmanaged initializer
+- (instancetype)initWithValue:(id)value schema:(RLMSchema *)schema NS_DESIGNATED_INITIALIZER;
+
+// live accessor initializer
+- (instancetype)initWithRealm:(__unsafe_unretained RLMRealm *const)realm
+                       schema:(RLMObjectSchema *)schema NS_DESIGNATED_INITIALIZER;
+
 // shared schema for this class
 + (nullable RLMObjectSchema *)sharedSchema;
 
-+ (nullable NSArray<RLMProperty *> *)_getPropertiesWithInstance:(id)obj;
-+ (bool)_realmIgnoreClass;
+// provide injection point for alternative Swift object util class
++ (Class)objectUtilClass:(BOOL)isSwift;
+
+@end
+
+@interface RLMObject ()
+
+// unmanaged initializer
+- (instancetype)initWithValue:(id)value schema:(RLMSchema *)schema NS_DESIGNATED_INITIALIZER;
+
+// live accessor initializer
+- (instancetype)initWithRealm:(__unsafe_unretained RLMRealm *const)realm
+                       schema:(RLMObjectSchema *)schema NS_DESIGNATED_INITIALIZER;
 
 @end
 
 @interface RLMDynamicObject : RLMObject
+
+@end
+
+// A reference to an object's row that doesn't keep the object accessor alive.
+// Used by some Swift property types, such as LinkingObjects, to avoid retain cycles
+// with their containing object.
+@interface RLMWeakObjectHandle : NSObject<NSCopying>
+
+- (instancetype)initWithObject:(RLMObjectBase *)object;
+
+// Consumes the row, so can only usefully be called once.
+@property (nonatomic, readonly) RLMObjectBase *object;
 
 @end
 
@@ -50,16 +75,11 @@ FOUNDATION_EXTERN id _Nullable RLMValidatedValueForProperty(id object, NSString 
 // Compare two RLObjectBases
 FOUNDATION_EXTERN BOOL RLMObjectBaseAreEqual(RLMObjectBase * _Nullable o1, RLMObjectBase * _Nullable o2);
 
-typedef void (^RLMObjectNotificationCallback)(RLMObjectBase *_Nullable object,
-                                              NSArray<NSString *> *_Nullable propertyNames,
+typedef void (^RLMObjectNotificationCallback)(NSArray<NSString *> *_Nullable propertyNames,
                                               NSArray *_Nullable oldValues,
                                               NSArray *_Nullable newValues,
                                               NSError *_Nullable error);
-FOUNDATION_EXTERN RLMNotificationToken *RLMObjectBaseAddNotificationBlock(RLMObjectBase *obj,
-                                                                          dispatch_queue_t _Nullable queue,
-                                                                          RLMObjectNotificationCallback block);
-RLMNotificationToken *RLMObjectAddNotificationBlock(RLMObjectBase *obj, RLMObjectChangeBlock block,
-                                                    dispatch_queue_t _Nullable queue);
+FOUNDATION_EXTERN RLMNotificationToken *RLMObjectAddNotificationBlock(RLMObjectBase *obj, RLMObjectNotificationCallback block);
 
 // Returns whether the class is a descendent of RLMObjectBase
 FOUNDATION_EXTERN BOOL RLMIsObjectOrSubclass(Class klass);
@@ -67,17 +87,28 @@ FOUNDATION_EXTERN BOOL RLMIsObjectOrSubclass(Class klass);
 // Returns whether the class is an indirect descendant of RLMObjectBase
 FOUNDATION_EXTERN BOOL RLMIsObjectSubclass(Class klass);
 
+// For unit testing purposes, allow an Objective-C class named FakeObject to also be used
+// as the base class of managed objects. This allows for testing invalid schemas.
+FOUNDATION_EXTERN void RLMSetTreatFakeObjectAsRLMObject(BOOL flag);
+
+// Get ObjectUil class for objc or swift
+FOUNDATION_EXTERN Class RLMObjectUtilClass(BOOL isSwift);
+
 FOUNDATION_EXTERN const NSUInteger RLMDescriptionMaxDepth;
 
-FOUNDATION_EXTERN id RLMObjectFreeze(RLMObjectBase *obj) NS_RETURNS_RETAINED;
+@class RLMProperty, RLMArray;
+@interface RLMObjectUtil : NSObject
 
-// Gets an object identifier suitable for use with Combine. This value may
-// change when an unmanaged object is added to the Realm.
-FOUNDATION_EXTERN uint64_t RLMObjectBaseGetCombineId(RLMObjectBase *);
++ (nullable NSArray<NSString *> *)ignoredPropertiesForClass:(Class)cls;
++ (nullable NSArray<NSString *> *)indexedPropertiesForClass:(Class)cls;
++ (nullable NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *)linkingObjectsPropertiesForClass:(Class)cls;
 
-@interface RLMManagedPropertyAccessor : NSObject
-+ (void)initializeObject:(void *)object parent:(RLMObjectBase *)parent property:(RLMProperty *)property;
-+ (id)get:(void *)pointer;
++ (nullable NSArray<NSString *> *)getGenericListPropertyNames:(id)obj;
++ (nullable NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *)getLinkingObjectsProperties:(id)object;
+
++ (nullable NSDictionary<NSString *, NSNumber *> *)getOptionalProperties:(id)obj;
++ (nullable NSArray<NSString *> *)requiredPropertiesForClass:(Class)cls;
+
 @end
 
 NS_ASSUME_NONNULL_END

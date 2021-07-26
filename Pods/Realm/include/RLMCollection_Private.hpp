@@ -28,13 +28,14 @@ namespace realm {
     struct NotificationToken;
 }
 class RLMClassInfo;
-@class RLMFastEnumerator, RLMManagedArray;
+@class RLMFastEnumerator;
 
 @protocol RLMFastEnumerable
 @property (nonatomic, readonly) RLMRealm *realm;
 @property (nonatomic, readonly) RLMClassInfo *objectInfo;
 @property (nonatomic, readonly) NSUInteger count;
 
+- (NSUInteger)indexInSource:(NSUInteger)index;
 - (realm::TableView)tableView;
 - (RLMFastEnumerator *)fastEnumerator;
 @end
@@ -45,9 +46,11 @@ class RLMClassInfo;
 @interface RLMFastEnumerator : NSObject
 - (instancetype)initWithList:(realm::List&)list
                   collection:(id)collection
+                       realm:(RLMRealm *)realm
                    classInfo:(RLMClassInfo&)info;
 - (instancetype)initWithResults:(realm::Results&)results
                      collection:(id)collection
+                          realm:(RLMRealm *)realm
                       classInfo:(RLMClassInfo&)info;
 
 // Detach this enumerator from the source collection. Must be called before the
@@ -64,19 +67,18 @@ NSUInteger RLMFastEnumerate(NSFastEnumerationState *state, NSUInteger len, id<RL
 - (RLMRealm *)realm;
 @end
 
+@interface RLMCancellationToken : RLMNotificationToken
+- (instancetype)initWithToken:(realm::NotificationToken)token realm:(RLMRealm *)realm;
+@end
+
 @interface RLMCollectionChange ()
 - (instancetype)initWithChanges:(realm::CollectionChangeSet)indices;
 @end
 
-realm::List& RLMGetBackingCollection(RLMManagedArray *);
-realm::Results& RLMGetBackingCollection(RLMResults *);
-
-template<typename RLMCollection>
-RLMNotificationToken *RLMAddNotificationBlock(RLMCollection *collection,
-                                              void (^block)(id, RLMCollectionChange *, NSError *),
-                                              dispatch_queue_t queue);
-
 template<typename Collection>
-NSArray *RLMCollectionValueForKey(Collection& collection, NSString *key, RLMClassInfo& info);
+RLMNotificationToken *RLMAddNotificationBlock(id objcCollection,
+                                              Collection& collection,
+                                              void (^block)(id, RLMCollectionChange *, NSError *),
+                                              bool suppressInitialChange=false);
 
 std::vector<std::pair<std::string, bool>> RLMSortDescriptorsToKeypathArray(NSArray<RLMSortDescriptor *> *properties);

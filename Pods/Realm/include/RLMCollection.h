@@ -18,17 +18,15 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Realm/RLMConstants.h>
 #import <Realm/RLMThreadSafeReference.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class RLMRealm, RLMResults, RLMSortDescriptor, RLMNotificationToken, RLMCollectionChange;
-typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
+@class RLMRealm, RLMResults, RLMObject, RLMSortDescriptor, RLMNotificationToken, RLMCollectionChange;
 
 /**
- A homogenous collection of Realm-managed objects. Examples of conforming types
- include `RLMArray`, `RLMResults`, and `RLMLinkingObjects`.
+ A homogenous collection of `RLMObject` instances. Examples of conforming types include `RLMArray`,
+ `RLMResults`, and `RLMLinkingObjects`.
  */
 @protocol RLMCollection <NSFastEnumeration, RLMThreadConfined>
 
@@ -42,21 +40,9 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
 @property (nonatomic, readonly, assign) NSUInteger count;
 
 /**
- The type of the objects in the collection.
+ The class name (i.e. type) of the `RLMObject`s contained in the collection.
  */
-@property (nonatomic, readonly, assign) RLMPropertyType type;
-
-/**
- Indicates whether the objects in the collection can be `nil`.
- */
-@property (nonatomic, readonly, getter = isOptional) BOOL optional;
-
-/**
- The class name  of the objects contained in the collection.
-
- Will be `nil` if `type` is not RLMPropertyTypeObject.
- */
-@property (nonatomic, readonly, copy, nullable) NSString *objectClassName;
+@property (nonatomic, readonly, copy) NSString *objectClassName;
 
 /**
  The Realm which manages the collection, or `nil` for unmanaged collections.
@@ -70,7 +56,7 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
 
  @param index   The index to look up.
 
- @return An object of the type contained in the collection.
+ @return An `RLMObject` of the type contained in the collection.
  */
 - (id)objectAtIndex:(NSUInteger)index;
 
@@ -79,7 +65,7 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
 
  Returns `nil` if called on an empty collection.
 
- @return An object of the type contained in the collection.
+ @return An `RLMObject` of the type contained in the collection.
  */
 - (nullable id)firstObject;
 
@@ -88,7 +74,7 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
 
  Returns `nil` if called on an empty collection.
 
- @return An object of the type contained in the collection.
+ @return An `RLMObject` of the type contained in the collection.
  */
 - (nullable id)lastObject;
 
@@ -101,7 +87,7 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
 
  @param object  An object (of the same type as returned from the `objectClassName` selector).
  */
-- (NSUInteger)indexOfObject:(id)object;
+- (NSUInteger)indexOfObject:(RLMObject *)object;
 
 /**
  Returns the index of the first object in the collection matching the predicate.
@@ -154,6 +140,17 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
  @return    An `RLMResults` sorted by the specified key path.
  */
 - (RLMResults *)sortedResultsUsingKeyPath:(NSString *)keyPath ascending:(BOOL)ascending;
+
+/**
+ Returns a sorted `RLMResults` from the collection.
+
+ @param property    The property name to sort by.
+ @param ascending   The direction to sort in.
+
+ @return    An `RLMResults` sorted by the specified property.
+ */
+- (RLMResults *)sortedResultsUsingProperty:(NSString *)property ascending:(BOOL)ascending
+    __deprecated_msg("Use `-sortedResultsUsingKeyPath:ascending:`");
 
 /**
  Returns a sorted `RLMResults` from the collection.
@@ -237,7 +234,7 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
      // end of run loop execution context
 
  You must retain the returned token for as long as you want updates to continue
- to be sent to the block. To stop receiving updates, call `-invalidate` on the token.
+ to be sent to the block. To stop receiving updates, call `-stop` on the token.
 
  @warning This method cannot be called during a write transaction, or when the
           containing Realm is read-only.
@@ -309,33 +306,6 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
  */
 - (nullable NSNumber *)averageOfProperty:(NSString *)property;
 
-#pragma mark - Freeze
-
-/**
- Indicates if the collection is frozen.
-
- Frozen collections are immutable and can be accessed from any thread. The
- objects read from a frozen collection will also be frozen.
- */
-@property (nonatomic, readonly, getter=isFrozen) BOOL frozen;
-
-/**
- Returns a frozen (immutable) snapshot of this collection.
-
- The frozen copy is an immutable collection which contains the same data as
- this collection currently contains, but will not update when writes are made
- to the containing Realm. Unlike live collections, frozen collections can be
- accessed from any thread.
-
- @warning This method cannot be called during a write transaction, or when the containing Realm is read-only.
- @warning Holding onto a frozen collection for an extended period while
-          performing write transaction on the Realm may result in the Realm
-          file growing to large sizes. See
-          `RLMRealmConfiguration.maximumNumberOfActiveVersions`
-          for more information.
- */
-- (instancetype)freeze;
-
 @end
 
 /**
@@ -371,6 +341,19 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMPropertyType);
  Returns a copy of the receiver with the sort direction reversed.
  */
 - (instancetype)reversedSortDescriptor;
+
+#pragma mark - Deprecated
+
+/**
+ The name of the property which the sort descriptor orders results by.
+ */
+@property (nonatomic, readonly) NSString *property __deprecated_msg("Use `-keyPath`");
+
+/**
+ Returns a new sort descriptor for the given property name and sort direction.
+ */
++ (instancetype)sortDescriptorWithProperty:(NSString *)propertyName ascending:(BOOL)ascending
+    __deprecated_msg("Use `+sortDescriptorWithKeyPath:ascending:`");
 
 @end
 

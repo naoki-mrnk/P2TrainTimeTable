@@ -6,5 +6,5 @@ target 'P2TrainTimeTable' do
   use_frameworks!
 
   # Pods for P2TrainTimeTable
-pod 'RealmSwift','5.0.0'
+pod 'RealmSwift','2.10.0'
 end
